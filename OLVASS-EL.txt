@@ -1,0 +1,63 @@
+KJK Online – Királynők Útvesztője
+Helyben futtatható fejlesztői változat
+
+INDÍTÁS WINDOWS ALATT
+1. Csomagold ki a teljes ZIP-et egy mappába.
+2. Kattints kétszer az INDITAS.cmd fájlra.
+3. Várd meg, amíg az indító mindent előkészít. Ha nincs megfelelő Node.js,
+   automatikusan letölti a hivatalos nodejs.org oldalról, ellenőrzi a
+   letöltést, és a játék saját .runtime mappájába telepíti.
+4. A játék megnyílik a böngészőben: http://127.0.0.1:4173/
+   Ha nem nyílik meg automatikusan, másold be ezt a címet.
+5. Az indító ablakot játék közben hagyd nyitva. Leállítás: Ctrl+C.
+
+Nem kell parancsot beírnod, külön telepítőt futtatnod vagy rendszergazdai
+jogot adnod. 64 bites Windows 10/11 szükséges (x64 és ARM64 is támogatott).
+Az első letöltéshez internet kell; a későbbi indítás már offline is működik.
+Mindig a kicsomagolt mappából indítsd, ne közvetlenül a ZIP belsejéből.
+A következő alkalommal is ugyanarra az INDITAS.cmd fájlra kattints.
+Ha hiányzik a kész dist mappa, az indító az elkészítését is megpróbálja;
+ehhez az esethez szintén internet kell. A ZIP már tartalmazza a kész oldalt.
+
+MACOS / LINUX
+Node.js 24 telepítése után a kicsomagolt mappában:
+  node scripts/serve-local.mjs
+Vagy:
+  sh INDITAS.command
+
+A kész változathoz nincs szükség npm install parancsra, újrafordításra,
+GitHubra vagy Cloudflare-re. A Node.js telepítése után internet nélkül is fut.
+Ne a dist/index.html fájlt nyisd meg közvetlenül; használd az indítót.
+
+A MENTÉS
+A játék automatikusan az adott böngészőbe ment. Ugyanazzal a böngészővel,
+ugyanazon a címen nyisd meg újra. A GitHubon játszott mentés nem kerül át
+automatikusan ide. Másik port is külön mentési helyet jelent.
+
+MI VAN A CSOMAGBAN?
+- dist/: a lefordított, futtatható weboldal.
+- src/, public/: az elkészített felület, grafika és játékmotor forrása.
+- src/game/pages.json és original-rules.json: a felhasználó könyvéből
+  feldolgozott szöveg és szabályok, amelyek a játék működéséhez szükségesek.
+  Az eredeti könyv szövege Martin Stone D. műve, nem saját alkotás.
+- scripts/, tests/: importáló és indító eszközök, illetve ellenőrzések.
+- docs/, .github/: dokumentáció és GitHub Pages közzétételi beállítások.
+
+Az eredeti feltöltött ZIP-ek, a többi könyv, a node_modules és a .git
+könyvtár nincsenek a csomagban. A helyi változat a korábban elkészített
+állapotot tartalmazza; a teljes könyv minden útvonala még nincs végigtesztelve.
+Az ismert forráshibákat és szabályértelmezéseket a docs/rules-decisions.md írja le.
+
+FORRÁSKÓD MÓDOSÍTÁSA
+Az alábbi rész csak fejlesztéshez kell, a játék elindításához nem.
+Kézi fejlesztéshez a rendszerben elérhető Node.js és npm szükséges.
+  npm ci
+  npm run dev
+Új helyi kiadás készítése a módosítások után:
+  npm run build
+Ez frissíti a dist mappát, amelyet az INDITAS.cmd kiszolgál.
+
+KÖZZÉTÉTEL
+Ez a ZIP helyben futtatható. A korábbi GitHub Pages konfigurációs hiba
+ettől független: Settings > Pages > Source: GitHub Actions.
+Részletes útmutató: docs/deployment.md.
