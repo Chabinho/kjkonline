@@ -1,0 +1,14 @@
+{
+  "pages": 557,
+  "missing_links": [
+    {
+      "from": "114",
+      "to": "160"
+    }
+  ],
+  "source": "kiralynok_utvesztoje.zip",
+  "sha256": "0233dd0297b6bc09f7001f247e3deff7a6ed9c985fcf0cfef1786cd1ca34eb42",
+  "encoding": "windows-1250",
+  "author": "Martin Stone D.",
+  "adaptation": "All text retained in document order; scripts and remote forms discarded."
+}
